@@ -1,0 +1,252 @@
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: #060c21;
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hhh {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+}
+.hhh span {
+    font-size: 50px;
+    color: #ffcc00;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid  #ffcc00;
+    margin: 1em auto;
+    width: 5%;
+}
+
+
+body {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #161624;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #ffcc00;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 70vw;
+    max-width: 400px;
+    max-height: 500px;
+    background: #060c21;
+    padding: 20px;
+    margin: 20px;
+}
+
+.box .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 25px;
+    color: #ddd;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.box .content h1 {
+    font-size: clamp(1.7rem, 5vw, 2.1rem);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+}
+
+.box .content p {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.box .content h3 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 2.5rem;
+}
+
+.box .glass {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+    pointer-events: none;
+}
+
+.box::before,
+.box::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+}
+
+.box:nth-child(1):before,
+.box:nth-child(1):after {
+    background: conic-gradient(from var(--angle), #fff,#060c21, #ffcc00, #000,#fff);
+}
+
+.box:nth-child(2):before,
+.box:nth-child(2):after {
+    background: conic-gradient(from var(--angle), #ffcc00, #060c21, #fff, #060c21, #ffcc00);
+}
+
+.box:nth-child(3):before,
+.box:nth-child(3):after {
+    background: conic-gradient(from var(--angle), #fff, #060c21, #ffcc00, #060c21, #fff);
+}
+
+.box::after {
+    z-index: -2;
+    filter: blur(20px);
+}
+
+.box:hover::before,
+.box:hover::after {
+    animation: glowing-border 3.5s linear infinite;
+}
+
+.box:hover::after {
+    animation: glowing-border 3.5s linear infinite, blur-effect 3.5s linear infinite;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background: #060c21;
+    margin-top: auto;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 53deg;
+    inherits: false;
+}
+
+@keyframes glowing-border {
+    from {
+        --angle: 53deg;
+    }
+
+    to {
+        --angle: 413deg;
+    }
+}
+
+@keyframes blur-effect {
+    from {
+        filter: blur(20px);
+    }
+
+    to {
+        filter: blur(19px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        gap: 80px;
+    }
+
+    .box {
+        width: 35vw;
+        height: 45vh;
+    }
+
+    .box .content h1 {
+        font-size: clamp(1.5rem, 5vw, 1.7rem);
+    }
+
+    .box .content p,
+    .box .content h3 {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        gap: 40px;
+    }
+
+    .box {
+        width: 40vw;
+        height: 40vh;
+    }
+
+    .box .content {
+        padding: 10px 15px;
+    }
+
+    .box .content h1 {
+        font-size: clamp(1.3rem, 3vw, 1.4rem);
+    }
+
+    .box .content p,
+    .box .content h3 {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 70vw;
+        height: 35vh;
+        padding: 10px;
+    }
+
+    .content {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .content h1 {
+        font-size: 1.3rem;
+    }
+
+    .content p,
+    .content h3 {
+        font-size: 1rem;
+    }
+}

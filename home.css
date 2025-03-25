@@ -1,0 +1,50 @@
+body{
+    background: #161624;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: #060c21;
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+    color: white;
+}
+
+h1 span {
+    font-size: 50px;
+    color: #ffcc00;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid  #ffcc00;
+    margin: 1em auto;
+    width: 10%;
+}
+
+@media only screen and (max-width: 600px) {
+   .h1{
+    font-size: 100%;
+   }
+   .td{
+    max-width: 100%;
+   }
+   nav ul li {
+   width: 100%;
+  }}
