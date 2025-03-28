@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// 🌟 Renderer Setup
+//  Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -12,14 +12,14 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 
-// 🎥 Camera Setup
+//  Camera setup
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
 camera.position.set(0, 2, 5);
 
-// 🏞️ Scene Setup
+//  Scene setup
 const scene = new THREE.Scene();
 
-// 🔆 Lighting
+//  Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
@@ -28,7 +28,7 @@ directionalLight.position.set(5, 10, 5);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// 🖱️ Controls (Interactive Rotation)
+//  Controls (Interactive Rotation)
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
@@ -39,7 +39,7 @@ controls.target.set(0, 0.1, 0);
 controls.maxPolarAngle = Math.PI / 2;
 controls.update();
 
-// 🌍 Ground Plane
+//  Ground plane
 const groundGeometry = new THREE.PlaneGeometry(10, 5, 2, 20);
 groundGeometry.rotateX(-Math.PI / 2);
 const groundMaterial = new THREE.MeshStandardMaterial({
@@ -53,7 +53,7 @@ scene.add(groundMesh);
 
 
 
-// 🎨 Load GLTF Model
+//  Load GLTF Model
 const loader = new GLTFLoader();
 loader.setPath('imac_24_m1_green_2021_gltf/');
 
@@ -76,7 +76,7 @@ loader.load('scene.gltf', (gltf) => {
   const scaleFactor = 2 / Math.max(size.x, size.y, size.z); // Normalize size
   model.scale.setScalar(scaleFactor);
 
-  // Adjust model position to ensure it sits on the ground
+  // Adjust model position 
   const minY = box.min.y * scaleFactor;
   model.position.set(-center.x * scaleFactor, -minY, -center.z * scaleFactor);
 
@@ -87,7 +87,7 @@ loader.load('scene.gltf', (gltf) => {
   console.error('Error loading model:', error);
 });
 
-// 🔄 Animation Loop
+//  Animation loop
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -96,7 +96,7 @@ function animate() {
 
 animate();
 
-// 📏 Resize Handling
+//  Resize handling
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();

@@ -1,6 +1,9 @@
 body{
+    font-family: arial, sans-serif;
     background: #161624;
 }
+
+/*navigation design*/
 nav ul {
     list-style: none;
     display: flex;
@@ -13,12 +16,14 @@ nav ul li {
     margin: 0 15px;
 }
 
+/*navigation buttons*/
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
 
+/*heading*/
 h1{
     font-size: 50px;
     text-align: center;
@@ -38,6 +43,7 @@ hr {
     width: 10%;
 }
 
+/*resizing*/
 @media only screen and (max-width: 600px) {
    .h1{
     font-size: 100%;

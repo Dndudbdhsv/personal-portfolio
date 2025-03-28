@@ -60,6 +60,7 @@ a {
 }
 
 .box {
+    border-radius: 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -99,6 +100,8 @@ a {
 }
 
 .box .glass {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -111,6 +114,7 @@ a {
 
 .box::before,
 .box::after {
+    border-radius: 20px;
     content: "";
     position: absolute;
     inset: -3px;
